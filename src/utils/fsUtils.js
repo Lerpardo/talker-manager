@@ -23,7 +23,10 @@ async function talkerById(id) {
     }
 }
 
+const tokenGenerator = () => crypto.randomBytes(8).toString('hex');
+
 module.exports = {
     readTalkers,
     talkerById,
+    tokenGenerator,
 };
