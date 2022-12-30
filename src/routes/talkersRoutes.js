@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { readTalkers, talkerById, addNewTalkers } = require('../utils/fsUtils')
+const { readTalkers, talkerById, addNewTalkers,editTalkerById } = require('../utils/fsUtils')
 const {
     validateToken,
     validateName,
@@ -30,10 +30,18 @@ router.get('/talker/:id', async (req, res) => {
     res.status(HTTP_OK_STATUS).json(talkersData);
 });
 
-app.post('/talker', validateToken,
+router.post('/talker', validateToken,
     validateName, validateAge, validateTalk, validateWatchedAt, validateRate, async (req, res) => {
         const talkerData = req.body;
         const talkers = await addNewTalkers(talkerData);
         return res.status(201).json(talkers);
     });
 
+
+router.put('/talker/:id', validateToken,
+    validateName, validateAge, validateTalk, validateWatchedAt, validateRate, async (req, res) => {
+        const { id } = req.params;
+        const newUpTalker = req.body;
+        const newUpData = await editTalkerById(Number(id), newUpTalker);
+        return res.status(200).json(newUpData);
+    });
