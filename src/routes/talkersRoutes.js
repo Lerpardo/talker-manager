@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { readTalkers, talkerById, addNewTalkers,editTalkerById } = require('../utils/fsUtils')
+const { readTalkers, talkerById, addNewTalkers, editTalkerById, deleteTalkerById } = require('../utils/fsUtils')
 const {
     validateToken,
     validateName,
@@ -45,3 +45,9 @@ router.put('/talker/:id', validateToken,
         const newUpData = await editTalkerById(Number(id), newUpTalker);
         return res.status(200).json(newUpData);
     });
+
+router.delete('/talker/:id', validateToken, async (req, res) => {
+    const { id } = req.params;
+    await deleteTalkerById(id);
+    res.status(204).end();
+});
