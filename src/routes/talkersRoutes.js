@@ -61,3 +61,5 @@ router.delete('/:id', validateToken, async (req, res) => {
     await deleteTalkerById(id);
     res.status(204).end();
 });
+
+module.exports = router ;
