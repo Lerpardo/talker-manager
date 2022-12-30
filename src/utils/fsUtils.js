@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 
-const PATH_NAME = './src/talker.json';
+const PATH_NAME = './src/data/talker.json';
 
 async function readTalkers() {
     try {
