@@ -62,6 +62,16 @@ async function deleteTalkerById(id) {
     }
 }
 
+async function queryTalkers(query) {
+    try {
+        const data = await readTalkers();
+        const queriedTalkers = data.filter((e) => (e.name).includes(query));
+        return queriedTalkers;
+    } catch (e) {
+        console.error(`Erro ao ler o arquivo: ${e.message}`);
+    }
+}
+
 module.exports = {
     readTalkers,
     talkerById,
@@ -69,4 +79,5 @@ module.exports = {
     addNewTalkers,
     editTalkerById,
     deleteTalkerById,
+    queryTalkers,
 };
