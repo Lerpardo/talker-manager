@@ -3,6 +3,16 @@
 
 In this project, An application for registration of talkers (speakers) in which it will be possible to register, view, search, edit and delete information.
 
+## Installation
+
+Clone and install the dependencies for `talker-manager` locally:
+
+```bash
+  git clone git@github.com:Lerpardo/talker-manager.git
+  cd talker-manager
+  npm install
+```
+
 ## Deployment
 
 To view this project run
@@ -12,8 +22,6 @@ To view this project run
 ```
 Open [talker endpoint](http://localhost:3000/talker) to acess and interact with database.
 Open [login endpoint](http://localhost:3000/login) to get logged.
-
-
 
 ## Technologies used in its development 🧑‍💻
 
@@ -28,7 +36,6 @@ Open [login endpoint](http://localhost:3000/login) to get logged.
 - Delete by specific ID.
 - Search for terms.
 
-
 ## Lessons Learned
 
 In this project, I used Node.js with Express. I created endpoints to read and write to a file using the fs module.
@@ -37,31 +44,3 @@ Using CRUD (Create, Read, Update, and Delete) of talkers to manipulate data.
 ## Feedback
 
 If you have any feedback, please reach out to us at ls6182315@gmail.com
-
-
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone git@github.com:Lerpardo/talker-manager.git
-```
-
-Go to the project directory
-
-```bash
-  cd my-project
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the server
-
-```bash
-  npm run dev
-```
-
