@@ -25,8 +25,20 @@ async function talkerById(id) {
 
 const tokenGenerator = () => crypto.randomBytes(8).toString('hex');
 
+async function addNewTalkers(talker) {
+    try {
+        const oldTalkers = await readTalkers();
+        const newTalkerWithId = { id: oldTalkers.length + 1, ...talker };
+        await fs.writeFile(PATH_NAME, JSON.stringify([...oldTalkers, newTalkerWithId]));
+        return newTalkerWithId;
+    } catch (e) {
+        console.error(`Erro ao ler o arquivo: ${e.message}`);
+    }
+}
+
 module.exports = {
     readTalkers,
     talkerById,
     tokenGenerator,
+    addNewTalkers,
 };
