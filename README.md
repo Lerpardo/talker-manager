@@ -3,15 +3,6 @@
 
 In this project, An application for registration of talkers (speakers) in which it will be possible to register, view, search, edit and delete information.
 
-## Installation
-
-Install my-project with npm
-
-```bash
-  cd talker-manager
-  npm install
-```
-    
 ## Deployment
 
 To view this project run
