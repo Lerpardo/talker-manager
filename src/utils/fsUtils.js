@@ -36,9 +36,26 @@ async function addNewTalkers(talker) {
     }
 }
 
+async function editTalkerById(id, talkerEdited) {
+    const oldsTalkers = await readTalkers();
+    const updatedTalkerData = { id, ...talkerEdited };
+    const retorno = oldsTalkers.reduce((a, c) => {
+        if (c.id === updatedTalkerData.id) return [...a, updatedTalkerData];
+        return [...a, c];
+    }, []);
+
+    try {
+        await fs.writeFile(PATH_NAME, JSON.stringify(retorno));
+        return updatedTalkerData;
+    } catch (e) {
+        console.error(`Erro ao ler o arquivo: ${e.message}`);
+    }
+}
+
 module.exports = {
     readTalkers,
     talkerById,
     tokenGenerator,
     addNewTalkers,
+    editTalkerById,
 };
