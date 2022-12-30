@@ -52,10 +52,21 @@ async function editTalkerById(id, talkerEdited) {
     }
 }
 
+async function deleteTalkerById(id) {
+    const data = await readTalkers();
+    const filteredTalkerData = data.filter((e) => e.id !== Number(id));
+    try {
+        await fs.writeFile(PATH_NAME, JSON.stringify(filteredTalkerData));
+    } catch (e) {
+        console.error(`Erro ao ler o arquivo: ${e.message}`);
+    }
+}
+
 module.exports = {
     readTalkers,
     talkerById,
     tokenGenerator,
     addNewTalkers,
     editTalkerById,
+    deleteTalkerById,
 };
