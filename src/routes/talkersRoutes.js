@@ -1,5 +1,13 @@
 const { Router } = require('express');
-const { readTalkers, talkerById,tokenGenerator } = require('../utils/fsUtils')
+const { readTalkers, talkerById } = require('../utils/fsUtils')
+const {
+    validateToken,
+    validateName,
+    validateAge,
+    validateTalk,
+    validateWatchedAt,
+    validateRate,
+} = require('../middlewares/validateTalker')
 
 const router = Router();
 
@@ -20,5 +28,12 @@ router.get('/talker/:id', async (req, res) => {
         });
     }
     res.status(HTTP_OK_STATUS).json(talkersData);
+});
+
+app.post('/talker', validateToken,
+ validateName, validateAge, validateTalk, validateWatchedAt, validateRate, async (req, res) => {
+  const talkerData = req.body;
+  const talkers = await addNewTalkers(talkerData);
+  return res.status(201).json(talkers);
 });
 
