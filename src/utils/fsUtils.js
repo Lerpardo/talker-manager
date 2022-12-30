@@ -13,6 +13,17 @@ async function readTalkers() {
     }
 }
 
+async function talkerById(id) {
+    try {
+        const talkers = await readTalkers();
+        const filteredTalker = talkers.find((e) => e.id === Number(id));
+        return filteredTalker;
+    } catch (e) {
+        console.error(`Erro ao ler o arquivo: ${e.message}`);
+    }
+}
+
 module.exports = {
     readTalkers,
+    talkerById,
 };
