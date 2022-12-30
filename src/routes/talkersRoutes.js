@@ -1,6 +1,5 @@
 const { Router } = require('express');
 const { readTalkers, talkerById,tokenGenerator } = require('../utils/fsUtils')
-const {validateLoginData } = require('../middlewares/validateLogin')
 
 const router = Router();
 
@@ -23,7 +22,3 @@ router.get('/talker/:id', async (req, res) => {
     res.status(HTTP_OK_STATUS).json(talkersData);
 });
 
-router.post('/login', validateLoginData, async (_req, res) => {
-    const tokenGenerated = { token: tokenGenerator() };
-    return res.status(HTTP_OK_STATUS).json(tokenGenerated);
-});
