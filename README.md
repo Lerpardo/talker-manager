@@ -36,6 +36,12 @@ Open [login endpoint](http://localhost:3000/login) to get logged.
 - Delete by specific ID.
 - Search for terms.
 
+# API endpoints
+
+These endpoints allow you to handle Stripe subscriptions for Publish and Analyze.
+
+## GET
+
 ## Lessons Learned
 
 In this project, I used Node.js with Express. I created endpoints to read and write to a file using the fs module.
