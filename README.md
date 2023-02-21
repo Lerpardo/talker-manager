@@ -38,9 +38,19 @@ Open [login endpoint](http://localhost:3000/login) to get logged.
 
 # API endpoints
 
-These endpoints allow you to handle Stripe subscriptions for Publish and Analyze.
+These endpoints allow you to handle Talkers subscriptions for Publish and Analyze.
 
-## GET
+### GET
+- talker/ `to get all`
+- talker/:id `to get by id`
+- talker/search `to search`
+
+### POST
+- talker/ `to create a new talker`
+### PUT
+- talker/:id `update talker by id`
+### DELETE
+- talker/:id `to delete` 
 
 ## Lessons Learned
 
